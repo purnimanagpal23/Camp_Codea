@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button{
+          padding: 15px 25px;
+          font-size: 24px;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+          color: #fff;
+          background-color: #4CAF50;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 9px #999;
+        }
+    </style>
+    <title>Tic Tac Toe game</title>
+</head>
+<body>
+<div id="tic-tac-toe">
+    <div id='game-name'>
+        <h1>Tic Tac Toe</h1>
+    </div>
+    <div id='game-panel'>
+        <button class='cell' id = '1' onclick="myFunction1()"> + </button>
+<!--         <button class='cell' id = '2' onclick="myFunction2()"> + </button>
+        <button class='cell' id = '3' onclick="myFunction3()"> + </button> -->
+    </div>    
+</div>
+
+<script>
+    function myFunction1(){
+        document.getElementById('1').innerHTML = 'O';
+    }
+    // function myFunction2(){
+    //     document.getElementById('2').innerHTML = 'O';
+    // }
+    // function myFunction3(){
+    //     document.getElementById('3').innerHTML = 'O';
+    // }
+</script>
+</body>
+</html>

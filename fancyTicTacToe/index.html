@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lato:300,400,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./mystyle.css">
+    <title>Tic Tac Toe game</title>
+</head>
+<body>
+<div id="tic-tac-toe">
+    <div class="content">
+    
+        <h1>Tic <em>Tac</em> Toe</h1>
+
+        <div id='game-panel'>
+            <div class = 'row'>
+                <button class='cell' id = '0' onclick="myFunction(this.id)"></button>
+                <button class='cell' id = '1' onclick="myFunction(this.id)"></button>
+                <button class='cell' id = '2' onclick="myFunction(this.id)"></button>
+            </div>
+            <div class = 'row'>
+                <button class='cell' id = '3' onclick="myFunction(this.id)"></button>
+                <button class='cell' id = '4' onclick="myFunction(this.id)"></button>
+                <button class='cell' id = '5' onclick="myFunction(this.id)"></button>
+            </div>
+            <div class = 'row'>
+                <button class='cell' id = '6' onclick="myFunction(this.id)"></button>
+                <button class='cell' id = '7' onclick="myFunction(this.id)"></button>
+                <button class='cell' id = '8' onclick="myFunction(this.id)"></button>
+            </div>
+        </div>
+
+        <div id='result'>
+            <span>
+                <div id='o-result'>
+                    <div>O</div> <span id='o-win-times'>0</span> <small>wins</small>
+                </div>
+                <div id='x-result'>
+                    <div>X</div> <span id='x-win-times'>0</span> <small>wins</small>
+                </div>
+            </span>
+            <button id='reset' id = '9' onclick="resetGame()"> Reset </button>
+        </div> 
+
+    </div>
+
+    
+</div>
+<script src="./myScript.js"></script>
+</body>
+</html>
