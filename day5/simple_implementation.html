@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <title>Caesar Cipher</title>
+        <script>
+            const alphabet = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+
+            function getCryptoAlphabet(key)
+            {
+                key = key % alphabet.length;
+                return alphabet.slice(key, alphabet.length) + alphabet.slice(0, key);
+            }
+
+            function encrypt(ptxt, key)
+            {
+                let ctxt = '';
+                let cryptoAlphabet = getCryptoAlphabet(key);
+
+                for (let i = 0; i < ptxt.length; i++) {
+                    let charIdx = alphabet.indexOf(ptxt[i]);
+                    ctxt += cryptoAlphabet[charIdx];
+                }
+
+                return ctxt;
+            }
+
+            function decrypt(ctxt, key)
+            {
+                let ptxt = '';
+                let cryptoAlphabet = getCryptoAlphabet(key);
+
+                for (let i = 0; i < ctxt.length; i++) {
+                    let charIdx = cryptoAlphabet.indexOf(ctxt[i]);
+                    ptxt += alphabet[charIdx];
+                }
+
+                return ptxt;
+            }
+
+            function onFormEncrypt()
+            {
+                let outputElement = document.getElementById('output');
+                let plaintext = document.getElementById('plaintext-input').value;
+                let key = parseInt(document.getElementById('encrypt-key-input').value);
+                let ciphertext = encrypt(plaintext, key);
+
+                outputElement.innerHTML = 'Your encrypted data: ' + ciphertext;
+                return false;
+            }
+
+            function onFormDecrypt()
+            {
+                let outputElement = document.getElementById('output');
+                let ciphertext = document.getElementById('ciphertext-input').value;
+                let key = parseInt(document.getElementById('decrypt-key-input').value);
+                let plaintext = decrypt(ciphertext, key);
+
+                outputElement.innerHTML = 'Your decrypted data: ' + plaintext;
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="output">
+        </div>
+        <p>
+            <form name="encryptForm">
+                <input type="text" name="plaintext" id="plaintext-input">
+                <input type="number" name="key" id="encrypt-key-input">
+                <input type="button" value="Encrypt" onclick="onFormEncrypt()">
+            </form>
+        </p>
+
+        <p>
+            <form name="decryptForm">
+                <input type="text" name="ciphertext" id="ciphertext-input">
+                <input type="number" name="key" id="decrypt-key-input">
+                <input type="button" value="Decrypt" onclick="onFormDecrypt()">
+            </form>
+        </p>
+    </body>
+</html>
